@@ -33,7 +33,8 @@ sub call {
 
     my $url_patterns = $self->url_patterns;
 
-    my $path  = $env->{PATH_INFO};
+    my $path = $env->{PATH_INFO};
+    my $body = "";
 
     for ( my $i = 0; $i < scalar(@$url_patterns); $i += 2 ) {
         my ($from, $to) = _fetch_url_pattern($url_patterns, $i);
@@ -41,6 +42,7 @@ sub call {
         next unless $path =~ m#$from#;
         
         my $type = ref $to;
+        my $body = "";
 
         if ($type ne 'ARRAY') {
             my $to = [$to, 301];
@@ -59,8 +61,8 @@ sub call {
             $path .= $path =~ /\?/
                 ? '&' . $query
                 : '?' . $query;
-        }                                                                                                                                                    
-        return [$status_code, ['Location' => $path], [] ];
+        }
+        return [$status_code, ['Location' => $path], [$body] ];
     }
 
     return $self->app->($env);
@@ -103,6 +105,12 @@ Plack::Middleware::Redirect - A simple redirector
 =head1 DESCRIPTION
 
 A plack middleware that redirects.
+
+
+=head1 REPOSITORY
+
+Plack::Middleware::Redirect is hosted on github: L<https://github.com/okazu-dm/p5-plack-middleware-redirect/tree/master/lib/Plack/Middleware>
+
 
 =head1 LICENSE
 
