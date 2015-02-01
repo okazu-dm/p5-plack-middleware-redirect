@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "A simple redirector",
    "author" : [
       "okazu-dm <uhavetwocows@gmail.com>"
    ],
@@ -47,10 +47,24 @@
       },
       "test" : {
          "requires" : {
+            "Plack::Builder" : "0",
+            "Plack::Test" : "0",
+            "Plack::Util" : "0",
             "Test::More" : "0.98"
          }
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/okazu-dm/p5-plack-middleware-redirect/issues"
+      },
+      "homepage" : "https://github.com/okazu-dm/p5-plack-middleware-redirect",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/okazu-dm/p5-plack-middleware-redirect.git",
+         "web" : "https://github.com/okazu-dm/p5-plack-middleware-redirect"
+      }
+   },
    "version" : "0.01"
 }

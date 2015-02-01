@@ -2,5 +2,7 @@ Revision history for Perl extension Plack-Middleware-Redirect
 
 {{$NEXT}}
 
+0.01 2015-02-01T13:15:45Z
+
     - original version
 

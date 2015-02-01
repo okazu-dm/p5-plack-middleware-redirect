@@ -1,11 +1,9 @@
 # NAME
 
-Plack::Middleware::Redirect - A Plack simple redirector
-
-[![Build Status](https://travis-ci.org/okazu-dm/p5-plack-middleware-redirect.svg?branch=master)](https://travis-ci.org/okazu-dm/p5-plack-middleware-redirect)
+Plack::Middleware::Redirect - A simple redirector
 
 # SYNOPSIS
-```perl
+
     use Plack::Builder;
 
     builder {
@@ -22,10 +20,14 @@ Plack::Middleware::Redirect - A Plack simple redirector
             '/foo/(.+)' => '/another/$1'
         ];
     };
-```
+
 # DESCRIPTION
 
-A simple perl module that redirects.
+A plack middleware that redirects.
+
+# REPOSITORY
+
+Plack::Middleware::Redirect is hosted on github: [https://github.com/okazu-dm/p5-plack-middleware-redirect/tree/master/lib/Plack/Middleware](https://github.com/okazu-dm/p5-plack-middleware-redirect/tree/master/lib/Plack/Middleware)
 
 # LICENSE
 
