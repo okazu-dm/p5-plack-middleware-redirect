@@ -49,6 +49,9 @@ sub client {
             is $res->header('Location'), $test->{location},
                 "Res: $test->{location}";
         }
+        if ( $test->{body} ){
+            is $res->content, $test->{body}, "Checked body";
+        }
 
     };
 }
@@ -60,18 +63,21 @@ sub tests {
         {   
             url  => '/no_redirect',
             status_code => '200',
+            body    => "Hello",
         },
 
         {   
             url  => '/status_code',
             location => '/permanent',
             status_code => '302',
+            body    => "Found",
         },
 
         {   
             url  => '/code_abc',
             location => '/a_b_c',
             status_code => '301',
+            body    => "Moved Permanently",
         },
     );
 }                        

@@ -10,6 +10,11 @@ our $VERSION = "0.01";
 
 use Plack::Util::Accessor qw/url_patterns/;
 
+my $BODY = {
+    301 => "Moved Permanently",
+    302 => "Found"
+};
+
 sub prepare_app {
     my $self = shift;
     my $url_patterns = $self->url_patterns;
@@ -42,7 +47,6 @@ sub call {
         next unless $path =~ m#$from#;
         
         my $type = ref $to;
-        my $body = "";
 
         if ($type ne 'ARRAY') {
             my $to = [$to, 301];
@@ -62,6 +66,7 @@ sub call {
                 ? '&' . $query
                 : '?' . $query;
         }
+        my $body = $BODY->{$status_code} || "";
         return [$status_code, ['Location' => $path], [$body] ];
     }
 
