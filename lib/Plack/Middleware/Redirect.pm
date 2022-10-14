@@ -49,7 +49,7 @@ sub call {
         my $type = ref $to;
 
         if ($type ne 'ARRAY') {
-            my $to = [$to, 301];
+            $to = [$to, 301];
         }
 
         my ($to_path, $status_code) = @$to;

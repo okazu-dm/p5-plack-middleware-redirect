@@ -79,5 +79,19 @@ sub tests {
             status_code => '301',
             body    => "Moved Permanently",
         },
+
+        {   
+            url  => '/old/path.html',
+            location => '/new/path.html',
+            status_code => '301',
+            body    => "Moved Permanently",
+        },
+
+        {   
+            url  => '/2022_12_31',
+            location => '/2022/12/31',
+            status_code => '301',
+            body    => "Moved Permanently",
+        },
     );
 }                        
