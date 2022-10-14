@@ -44,7 +44,7 @@ sub call {
     for ( my $i = 0; $i < scalar(@$url_patterns); $i += 2 ) {
         my ($from, $to) = _fetch_url_pattern($url_patterns, $i);
 
-        next unless $path =~ m#$from#;
+        next unless $path =~ $from;
         
         my $type = ref $to;
 
